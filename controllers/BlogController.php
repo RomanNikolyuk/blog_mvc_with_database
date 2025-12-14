@@ -6,19 +6,10 @@ class BlogController
     public function showAllPosts($search = '')
     {
         $search = trim((string)$search);
-        $posts = Post::getAll();
-
         if ($search !== '') {
-            $toLower = function ($s) { return mb_strtolower((string)$s, 'UTF-8'); };
-            $contains = function ($haystack, $needle) { return mb_strpos($haystack, $needle, 0, 'UTF-8') !== false; };
-
-
-            $q = $toLower($search);
-            $posts = array_values(array_filter($posts, function ($post) use ($toLower, $contains, $q) {
-                $title = $toLower($post->title);
-                $content = $toLower($post->content);
-                return $contains($title, $q) || $contains($content, $q);
-            }));
+            $posts = Post::search($search);
+        } else {
+            $posts = Post::getAll();
         }
 
         $perPage = 3;
@@ -30,8 +21,6 @@ class BlogController
         $posts = array_slice($posts, $offset, $perPage);
 
         $pageTitle = 'Мій блог';
-        $searchQuery = $search;
-        $search = $search;
 
         include __DIR__ . '/../views/postsView.php';
     }
