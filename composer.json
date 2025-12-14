@@ -1,0 +1,17 @@
+{
+  "name": "student/blog_mvc",
+  "description": "Simple MVC blog in PHP for training",
+  "type": "project",
+  "require": {
+    "erusev/parsedown": "^1.7",
+    "nesbot/carbon": "^3.0"
+  },
+  "autoload": {
+    "classmap": [
+      "controllers/",
+      "models/"
+    ]
+  },
+  "minimum-stability": "stable",
+  "license": "MIT"
+}

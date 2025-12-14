@@ -1,0 +1,11 @@
+<hr>
+<footer class="container py-3">
+    <p class="text-center text-muted mb-0">&copy; <?= date('Y') ?> Мій блог</p>
+    <?php if (!empty($searchQuery)) : ?>
+        <p class="text-center text-muted small">Результати пошуку за: «<?= htmlspecialchars($searchQuery, ENT_QUOTES, 'UTF-8') ?>»</p>
+    <?php endif; ?>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
